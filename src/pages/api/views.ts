@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import connect from "../../lib/mongoose";
-import View from "../../models/View";
+import View from "../../models/view";
 export default async function handler(req, res) {
   await connect();
   const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress;

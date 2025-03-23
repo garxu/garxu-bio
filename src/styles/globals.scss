@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@300;700&display=swap');
+
+:root {
+  --accent: #ff4081;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 300;
+  background: url('/background.gif') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h2, .username {
+  font-weight: 700;
+}
+
+.bio {
+  color:#fff;
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.scaleWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.scaleWrapper > * {
+  transform: scale(calc(min(100vw/640, 100vh/544)));
+  transform-origin: center;
+}

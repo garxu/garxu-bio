@@ -1,0 +1,91 @@
+.banner {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bannerBackground {
+  width: 100%;
+  height: 25vw;
+  max-height: 128px;
+  background: url("/banner.jpg") center/cover no-repeat;
+  border-radius: 16px 16px 0 0;
+}
+
+.bannerBackground {
+  height: clamp(100px, 20vw, 128px);
+}
+
+.viewCounter {
+  position: absolute;
+  top: 180px;
+  left: 16px;
+  color: #fff;
+  font-size: clamp(12px, 1.2vw, 14px); /* scales down on mobile */
+  z-index: 5;
+}
+
+.avatar {
+  width: 20vw;
+  max-width: 136px;
+  height: auto;
+  border-radius: 50%;
+  margin-top: -10vw;
+  background: #fff;
+}
+
+.avatar {
+  width: clamp(80px, 20vw, 136px);
+  margin-top: calc(-0.5 * clamp(80px, 20vw, 136px));
+}
+
+.username {
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  color: #fff;
+  margin: 8px 0 4px;
+}
+
+.username {
+  font-size: clamp(1.4rem, 5vw, 2rem);
+}
+
+.badges {
+  display: flex;
+  gap: 4px;
+}
+
+.badges img {
+  width: 24px;
+  height: 24px;
+  filter: invert(1);
+}
+
+.badgeWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  visibility: hidden;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  text-transform: capitalize;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.badgeWrapper:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}

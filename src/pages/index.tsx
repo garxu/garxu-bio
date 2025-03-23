@@ -1,8 +1,10 @@
+import dynamic from "next/dynamic";
 import BoxContainer from "../components/BoxContainer";
 import Banner from "../components/Banner";
 import ViewCounter from "../components/ViewCounter";
 import AudioPlayer from "../components/AudioPlayer";
 import TypewriterText from "../components/TypewriterText";
+const CatFollower = dynamic(() => import("../components/CatFollower"), { ssr: false });
 
 export default function Home() {
   return (
@@ -23,6 +25,7 @@ export default function Home() {
         playlist={[{ title: "Boyz Don't Cry", src: "/audio/fivio_foreign.mp3" }]}
       />
     </BoxContainer>
+    <CatFollower />
     </div>
   );
 }

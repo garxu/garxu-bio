@@ -11,3 +11,10 @@
   justify-content: space-between;
   box-sizing: border-box;
 }
+
+/* Shrink container width by 20px on tablets/phones */
+@media (max-width: 768px) {
+  .boxContainer {
+    max-width: calc(100% - 20px);
+  }
+}

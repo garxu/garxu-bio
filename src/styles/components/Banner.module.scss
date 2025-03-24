@@ -6,16 +6,21 @@
   align-items: center;
 }
 
+/* Top banner bar (keeps your clamp sizing) */
 .bannerBackground {
   width: 100%;
-  height: 25vw;
-  max-height: 128px;
+  height: clamp(100px, 20vw, 128px);
   background: url("/banner.jpg") center/cover no-repeat;
   border-radius: 16px 16px 0 0;
 }
 
-.bannerBackground {
-  height: clamp(100px, 20vw, 128px);
+/* Avatar rules stay the same */
+.avatar {
+  width: clamp(80px, 20vw, 136px);
+  height: auto;
+  border-radius: 50%;
+  background: #fff;
+  margin-top: calc(-0.5 * clamp(80px, 20vw, 136px));
 }
 
 .viewCounter {
@@ -23,37 +28,54 @@
   top: 180px;
   left: 16px;
   color: #fff;
-  font-size: clamp(12px, 1.2vw, 14px); /* scales down on mobile */
+  font-size: clamp(12px, 1.2vw, 14px);
   z-index: 5;
 }
 
-.avatar {
-  width: 20vw;
-  max-width: 136px;
-  height: auto;
-  border-radius: 50%;
-  margin-top: -10vw;
-  background: #fff;
+/* Tablet & small desktop (≤768px wide): drop it 20px lower */
+@media (max-width: 768px) {
+  .viewCounter {
+    bottom: 250px; /* 180px + 20px */
+  }
 }
 
-.avatar {
-  width: clamp(80px, 20vw, 136px);
-  margin-top: calc(-0.5 * clamp(80px, 20vw, 136px));
+/* Mobile phones (≤414px wide): drop it 10px lower from its tablet position */
+@media (max-width: 414px) {
+  .viewCounter {
+    bottom: 300px; /* 180px + 30px total (20 + 10) */
+  }
 }
 
+/* 
+   New container: puts username + badges on one row,
+   horizontally centered below the avatar
+*/
+.nameAndBadges {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;  /* small space between username & badges */
+  margin-top: 8px; /* space below the avatar */
+}
+
+/* Remove extra margin from the username so it aligns with badges */
 .username {
   font-size: clamp(1.2rem, 4vw, 2rem);
   color: #fff;
-  margin: 8px 0 4px;
+  margin: 0; /* remove margin so it lines up on the baseline */
+  padding: 0;
 }
 
-.username {
-  font-size: clamp(1.4rem, 5vw, 2rem);
-}
-
+/* 
+   Same badges styles as before.
+   They will now appear to the right of the username in the same row
+*/
 .badges {
   display: flex;
   gap: 4px;
+  /* new offsets */
+  margin-left: 5px; /* move badges 5px to the right */
+  margin-top: 3px;  /* move badges 3px down */
 }
 
 .badges img {

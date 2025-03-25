@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import connect from '../../lib/mongoose';
-import View from '../../models/View';
+import View from '../../models/view';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {

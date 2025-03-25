@@ -20,7 +20,8 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <link rel="preload" href="/audio/fivio_foreign.mp3" as="audio" />
         <link rel="preload" href="/icons/view.svg" as="image" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="icon" href="/favicon.ico" />
+        
+        <link rel="icon" href="/icons/favicon.ico" />
 
         <meta name="description" content="Graphic Designer" />
 

@@ -13,6 +13,19 @@ html, body {
 
   overflow-x: hidden; /* prevent horizontal overflow */
   overflow-y: auto;   /* keep vertical scrolling only if needed */
+
+  cursor: url('/icons/cursor.cur'), auto;
+}
+
+/* Dark mode: invert entire page */
+html.dark-mode {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* Undo inversion specifically for banner and avatar images */
+html.dark-mode img[src="/banner.jpg"],
+html.dark-mode img[src="/avatar.png"] {
+  filter: invert(1) hue-rotate(180deg) !important;
 }
 
 * {

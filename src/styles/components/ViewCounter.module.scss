@@ -1,6 +1,19 @@
 .viewCounter {
-  margin-top: -175px;
-  margin-left: 10px;
-  color: #fff;
-  font-size: 16px;
+  position: absolute;
+  top: calc(clamp(100px, 20vw, 128px) + 20px); /* banner height + 8px gap */
+  left: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: clamp(12px, 1.2vw, 12px);
+  z-index: 5;
+  filter: invert(1);
+}
+
+.count {
+  font-size: clamp(12px,1.2vw,14px);
+}
+
+.viewCounter {
+  font-size: clamp(12px,1.2vw,14px);
 }

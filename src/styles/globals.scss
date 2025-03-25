@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@300;700&display=swap');
 
-:root {
-  --accent: #ff4081;
-}
-
-body {
+html, body {
   margin: 0;
   padding: 0;
   font-family: 'Unbounded', sans-serif;
@@ -14,6 +10,17 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+
+  overflow-x: hidden; /* prevent horizontal overflow */
+  overflow-y: auto;   /* keep vertical scrolling only if needed */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.boxContainer {
+  overflow: hidden;
 }
 
 h2, .username {

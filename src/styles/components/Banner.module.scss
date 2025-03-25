@@ -6,76 +6,73 @@
   align-items: center;
 }
 
-/* Top banner bar (keeps your clamp sizing) */
-.bannerBackground {
+.bannerImg {
   width: 100%;
   height: clamp(100px, 20vw, 128px);
-  background: url("/banner.jpg") center/cover no-repeat;
+  object-fit: cover;
   border-radius: 16px 16px 0 0;
-}
-
-/* Avatar rules stay the same */
-.avatar {
-  width: clamp(80px, 20vw, 136px);
-  height: auto;
-  border-radius: 50%;
-  background: #fff;
-  margin-top: calc(-0.5 * clamp(80px, 20vw, 136px));
 }
 
 .viewCounter {
   position: absolute;
-  top: 180px;
+  top: calc(clamp(100px, 20vw, 128px) + 8px);
   left: 16px;
-  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 6px;
   font-size: clamp(12px, 1.2vw, 14px);
   z-index: 5;
 }
 
-/* Tablet & small desktop (≤768px wide): drop it 20px lower */
-@media (max-width: 768px) {
-  .viewCounter {
-    bottom: 250px; /* 180px + 20px */
-  }
+.avatar {
+  width: clamp(80px, 20vw, 136px);
+  border-radius: 50%;
+  margin-top: calc(-0.5 * clamp(80px, 20vw, 136px));
+  background: #fff;
 }
 
-/* Mobile phones (≤414px wide): drop it 10px lower from its tablet position */
-@media (max-width: 414px) {
-  .viewCounter {
-    bottom: 300px; /* 180px + 30px total (20 + 10) */
-  }
-}
-
-/* 
-   New container: puts username + badges on one row,
-   horizontally centered below the avatar
-*/
 .nameAndBadges {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;  /* small space between username & badges */
-  margin-top: 8px; /* space below the avatar */
+  gap: 8px;
+  margin-top: 8px;
 }
 
-/* Remove extra margin from the username so it aligns with badges */
 .username {
-  font-size: clamp(1.2rem, 4vw, 2rem);
+  font-size: clamp(1.4rem, 5vw, 2rem);
   color: #fff;
-  margin: 0; /* remove margin so it lines up on the baseline */
-  padding: 0;
+  margin: 0;
 }
 
-/* 
-   Same badges styles as before.
-   They will now appear to the right of the username in the same row
-*/
+.usernameWrapper {
+  position: relative;
+}
+
+.usernameTooltip {
+  visibility: hidden;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.usernameWrapper:hover .usernameTooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
 .badges {
   display: flex;
   gap: 4px;
-  /* new offsets */
-  margin-left: 5px; /* move badges 5px to the right */
-  margin-top: 3px;  /* move badges 3px down */
+  margin-left: 5px;
+  margin-top: 3px;
 }
 
 .badges img {
@@ -86,14 +83,12 @@
 
 .badgeWrapper {
   position: relative;
-  display: inline-block;
 }
 
 .tooltip {
   visibility: hidden;
   background: rgba(0,0,0,0.8);
   color: #fff;
-  text-transform: capitalize;
   font-size: 12px;
   padding: 4px 8px;
   border-radius: 4px;
@@ -101,10 +96,8 @@
   bottom: 100%;
   left: 50%;
   transform: translateX(-50%);
-  white-space: nowrap;
   opacity: 0;
-  transition: opacity 0.2s ease;
-  pointer-events: none;
+  transition: opacity .2s;
 }
 
 .badgeWrapper:hover .tooltip {

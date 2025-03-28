@@ -5,6 +5,8 @@ import Banner from "../components/Banner";
 import ViewCounter from "../components/ViewCounter";
 import DarkToggle from "../components/DarkToggle";
 
+import LinkButtons from "../components/LinkButtons";
+
 const TypewriterText = dynamic(() => import("../components/TypewriterText"));
 const SocialLinks = dynamic(() => import("../components/SocialLinks"));
 const AudioPlayer = dynamic(() => import("../components/AudioPlayer"));
@@ -71,6 +73,15 @@ export default function Home() {
             },
           ]}
         />
+
+        <SocialLinks
+          links={
+            [
+              /* ... */
+            ]
+          }
+        />
+        <LinkButtons />
 
         {playlist.length > 0 && <AudioPlayer playlist={playlist} />}
       </BoxContainer>

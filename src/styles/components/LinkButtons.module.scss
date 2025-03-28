@@ -1,0 +1,50 @@
+.linkButtons {
+  display: flex;
+  flex-direction: row; /* line them up horizontally */
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* 
+     Each card is half the container's width. 
+     Or if you want them to auto-fit, remove `flex: 1`.
+  */
+  .card {
+    /* revert width to original */
+    flex: 1; /* or width: 50%; if that was your original approach */
+  
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+  
+    /* Increase vertical padding by 25% */
+    padding: 0.9375rem 1rem; /* if originally 0.75rem, now ~25% larger */
+  
+    text-decoration: none;
+    transition: background 0.2s ease;
+    color: inherit;
+  }
+
+.card:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.leftIcon {
+  width: 24px;
+  height: 24px;
+  margin-right: 0.5rem;
+}
+
+.text {
+  flex: 1; /* the text pushes arrow to the far right */
+  font-size: 1rem;
+  color: white;
+}
+
+.rightArrow {
+  width: 20px;
+  height: 20px;
+  margin-left: auto;
+  filter: invert(1);
+}
